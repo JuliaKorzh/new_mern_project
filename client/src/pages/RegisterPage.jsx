@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import { NavLink } from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import { registerUser } from '../redux/features/auth/authSlice';
 import { useForm } from 'react-hook-form';
@@ -11,17 +12,17 @@ export const RegisterPage = () => {
   const [phonenumber, setPhonenumber] = useState("")
   const [password, setPassword] = useState("")
   const [isVisible, setIsVisible] = useState(false)
-  const {status} = useSelector((state) => state.auth)                        //  мы достаем status  из state.auth
-
   const dispatch = useDispatch()
+
+  const {status, message} = useSelector((state) => state.auth)                        
 
 
 
 useEffect(() => {
-if(status !== null){
+if(status === 401){
   setIsVisible(current => !current)
 }
-}, status)
+}, [status])
 
 
   const onSubmit = ()=> {
@@ -31,7 +32,6 @@ if(status !== null){
       setEmail ("")
       setPhonenumber ("")
       setPassword ("")
-
     }
     catch(err){
       console.log(err)
@@ -131,11 +131,12 @@ if(status !== null){
               onClick={onSubmit}>
               confirm
             </button>
-            <div className={  isVisible === true ? "block"  :  "none"}> 
-            <p>{status}</p>
-            </div>
         </div>
       </form>
+      <div className={ isVisible === true ? "recover"  :  "none"}> 
+            <p>{message}</p>
+            <NavLink to={"/recovery"}>recover your password</NavLink>
+            </div>
     </div>
   </div>
   )

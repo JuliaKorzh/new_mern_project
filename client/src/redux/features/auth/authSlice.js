@@ -6,11 +6,12 @@ const initialState = {
    user:null,
    token: null,
    isLoading: false,
-   status: null,
+   message: null,
+   status: null
 
 }
 export const registerUser = createAsyncThunk( "auth/registerUser", 
-   async ({name, email, phonenumber, password}) => {                          // параметры, кт мы хотим передать
+   async ({name, email, phonenumber, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
       try{
          const {data} = await axios.post("/auth/register", {                 // ответ приходит как data, поэтому {}
             name,
@@ -26,7 +27,11 @@ export const registerUser = createAsyncThunk( "auth/registerUser",
          return data
       }
       catch(error) {
-        console.log(error)
+         if (error.response && error.response.data.message) {
+            return rejectWithValue(error.response.data.message)
+          } else {
+            return rejectWithValue(error.message)
+          }
          } 
 })
 
@@ -40,16 +45,18 @@ export const authSlice =  createSlice({
          state.isLoading = true
          state.status = null
       },
-      [registerUser.fulfilled]: (state, action) => {
-         state.isLoading = false                       // payload это всё, что отправляетс на бэкенд {newUser: {...} message token}
-         state.status = action.payload.message      
-         state.user = action.payload.user
-         state.token = action.payload.token
+      [registerUser.fulfilled]: (state, {payload}) => {
+         state.isLoading = false                       
+         state.message = payload.message 
+         state.status= payload.status    
+         state.user = payload.user
+         state.token = payload.token
          
       },
-      [registerUser.rejectWithValue]: (state, action) => {
-         state.status = action.payload.message 
+      [registerUser.rejectWithValue]: (state, {payload}) => {
+         state.message = payload.message
          state.isLoading = false
+         state.status= payload.status   
       },
    }                       
 })

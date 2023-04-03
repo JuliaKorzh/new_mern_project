@@ -65,8 +65,12 @@ body {
 .none {
   display: none;
 }
-.block {
+.recover {
   display: block;
+  position: absolute;
+  height: 80%;
+  width: 100%;
+  
 }
 
 /*________________________________________HEADER______________________*/

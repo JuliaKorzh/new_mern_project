@@ -36,11 +36,11 @@ export const register = async (req, res)=>{
          password: hash,                                                   // вместо пароля вписываем хэш
       })
       const token = jwt.sign(
-         {                                    // токен это зашифрованный id пользователя
-         id: user._id,                      // нужен, чтобы понять авторизовался пользователь или нет. Если пользователь не в  системе, он не сможет нпр отправить сообщение владельцу
+         {                                                               // токен это зашифрованный id пользователя
+         id: user._id,                                                       // нужен, чтобы понять авторизовался пользователь или нет. Если пользователь не в  системе, он не сможет нпр отправить сообщение владельцу
         }, 
-        process.env.JWT_SECRET,                 //секретное слово 
-        {expiresIn: "30d"},                     // сколько времени действителен
+        process.env.JWT_SECRET,                                    //секретное слово 
+        {expiresIn: "30d"},                                            // сколько времени действителен
      )      
 
       await user.save()                                               // сохраняем польз в БД
@@ -92,14 +92,14 @@ export const login = async (req, res)=>{
        {
          token,
          user,
-         message: "Пользователь успешно авторизовался"
+         message: "User successfully logged in"
        }
       )
       
    }
    catch(err){
       res.status(500).json({
-         message: "Не удалось авторизоваться"
+         message: "Failed to login"
       })
    }
 }
@@ -112,7 +112,7 @@ export const login = async (req, res)=>{
          const user = await User.findById(req.userId) // userId хранит расшифрованный токен. По нему ищем пользователя
          if(!user){
             return res.status(400).json({
-               message: "Пользователь не авторизован"
+               message: "User not authorized"
             })
          }
          const token = jwt.sign({                // токен это зашифрованный id пользователя
@@ -128,7 +128,7 @@ export const login = async (req, res)=>{
       }
       catch(err){
          res.status(400).json({
-            message: "Пользователь не авторизован"
+            message: "User not authorized"
          })
       }
    }
