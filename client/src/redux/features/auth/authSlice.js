@@ -1,64 +1,98 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "../../../utils/axios";
 
-
-const initialState = {
-   user:null,
-   token: null,
-   isLoading: false,
-   message: null,
-   status: null
-
-}
 export const registerUser = createAsyncThunk( "auth/registerUser", 
    async ({name, email, phonenumber, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
       try{
-         const {data} = await axios.post("/auth/register", {                 // ответ приходит как data, поэтому {}
-            name,
-            email,
-            phonenumber,
-            password,
-         })
+         const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            }}
+         const {data} = await axios.post("/auth/register", {name, email, phonenumber, password}, config)
    
          if(data.token){                                                   //если в запросе есть токен, он сразу записывается в headers
             window.localStorage.setItem("token", data.token)
          }
-         console.log(data)
          return data
       }
       catch(error) {
-         if (error.response && error.response.data.message) {
-            return rejectWithValue(error.response.data.message)
-          } else {
-            return rejectWithValue(error.message)
-          }
+         console.log('error', error.response.request.status);
+         console.log('message', error.response.data.message);
+         return rejectWithValue(error.response.data.message);
+         } 
+})
+
+export const loginUser = createAsyncThunk( "auth/loginUser", 
+   async ({email, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
+      try{
+         const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            }}
+         const {data} = await axios.post("/auth/login", { email, password}, config)
+   
+         if(data.token){                                                   //если в запросе есть токен, он сразу записывается в headers
+            window.localStorage.setItem("token", data.token)
+         }
+         return data
+      }
+      catch(error) {
+         console.log('error', error.response);
+         console.log('error', error.response.request.status);
+         console.log('message', error.response.data.message);
+         return rejectWithValue(error.response.data.message);
          } 
 })
 
 
-export const authSlice =  createSlice({
-   name: "auth",
+const initialState = {
+   loading: false,
+   userInfo: null, // for user object
+   userToken: null, // for storing the JWT
+   error: null,
+   success: false, // for monitoring the registration process.
+   };
+
+const authSlice = createSlice({
+   name: 'auth',
    initialState,
-   reducers: {},
-   extraReducers: {                                    //управление состояниями 
-      [registerUser.pending]: (state) => {
-         state.isLoading = true
-         state.status = null
+   reducers: {
+      logout: (state) => {
+         state.userInfo = null;
+         },
+   },
+   extraReducers: {
+      //Register
+       [registerUser.pending]: (state) => {
+         state.loading = true
+         state.error = null
       },
-      [registerUser.fulfilled]: (state, {payload}) => {
-         state.isLoading = false                       
-         state.message = payload.message 
-         state.status= payload.status    
-         state.user = payload.user
-         state.token = payload.token
+      [registerUser.fulfilled]: (state, { payload }) => {
+         state.loading = false
+         state.success = true 
+      },
+      [registerUser.rejected]: (state, { payload }) => {
+         state.loading = false
+         state.error = payload
+      },
+      //Login
+      [loginUser.pending]: (state) => {
+         state.loading = true
+         state.error = null
+      },
+      [loginUser.fulfilled]: (state, { payload }) => {
+         state.loading = false
+         state.userInfo = payload
+         state.userToken = payload.userToken
          
       },
-      [registerUser.rejectWithValue]: (state, {payload}) => {
-         state.message = payload.message
-         state.isLoading = false
-         state.status= payload.status   
+      [loginUser.rejected]: (state, { payload }) => {
+         state.loading = false
+         state.error = payload
       },
-   }                       
-})
 
-export default authSlice.reducer
+   },
+}
+);
+
+export default authSlice.reducer;

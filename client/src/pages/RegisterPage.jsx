@@ -1,47 +1,33 @@
-import React, {useEffect, useState} from 'react';
-import { NavLink } from "react-router-dom";
+import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import { registerUser } from '../redux/features/auth/authSlice';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const RegisterPage = () => {
-
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [phonenumber, setPhonenumber] = useState("")
-  const [password, setPassword] = useState("")
-  const [isVisible, setIsVisible] = useState(false)
+  
   const dispatch = useDispatch()
+  const { error, success } = useSelector(
+    (state) => state.auth)  
+  const navigate = useNavigate()
+  const { register, handleSubmit, formState: { errors }, watch } = useForm({mode: "onBlur"});
 
-  const {status, message} = useSelector((state) => state.auth)                        
-
-
-
-useEffect(() => {
-if(status === 401){
-  setIsVisible(current => !current)
-}
-}, [status])
-
-
-  const onSubmit = ()=> {
+  useEffect(()=>{
+      if(success) navigate ("/register/success")
+      if(error) navigate("/error")
+    }, [navigate, success, error])
+                  
+  const onSubmit = (data)=> {
     try{
-      dispatch(registerUser({name, email, phonenumber, password}));
-      setName("")                                                            //  очищаем форму после отправки
-      setEmail ("")
-      setPhonenumber ("")
-      setPassword ("")
+      dispatch(registerUser(data));
     }
     catch(err){
       console.log(err)
-      
     }
   }
   
-  const { register, handleSubmit, formState: { errors }, watch } = useForm({mode: "onBlur"});
-   
- 
   
   return (
     <div className='register__container container'>
@@ -49,13 +35,12 @@ if(status === 401){
       <h2 className='form__title'>Sign up</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-         className={errors?.name ? "invalid" : "valid"}
-            {...register("name", {
+          className={errors?.name ? "invalid" : "valid"}
+          {...register("name", {
               required: "field is required",
-            })}
-            value = {name}
-            onChange={(e)=> setName(e.target.value)}                        // берем value из input и записываем его в state (name)
-            placeholder="name">
+          })}
+          type="text"
+          placeholder="name">
         </input>
         <div className='errors'>
             {errors?.name && <p>{errors?.name?.message}</p>}
@@ -70,8 +55,6 @@ if(status === 401){
               }
             })}
             type="email"
-            value={email}
-            onChange={(e)=> setEmail(e.target.value)}  
             placeholder="e-mail">
         </input>
         <div className='errors'>
@@ -87,8 +70,6 @@ if(status === 401){
               }
             })}
             type="tel"
-            value={phonenumber}
-            onChange={(e)=> setPhonenumber(e.target.value)}  
             placeholder="+79...">
         </input>
         <div className='errors'>
@@ -104,8 +85,6 @@ if(status === 401){
             }
           })}
             type="password"
-            value={password}
-            onChange={(e)=> setPassword(e.target.value)}  
             placeholder="password">
         </input>
         <div className='errors'>
@@ -125,21 +104,12 @@ if(status === 401){
             {errors?.confirm_password && <p>{errors?.confirm_password?.message}</p>}
         </div>
         <div className='btn__flex'>
-            <button
-              className='btn'
-              type='submit'
-              onClick={onSubmit}>
+            <button className='btn' type='submit' onClick={onSubmit}>
               confirm
             </button>
         </div>
       </form>
-      <div className={ isVisible === true ? "recover"  :  "none"}> 
-            <p>{message}</p>
-            <NavLink to={"/recovery"}>recover your password</NavLink>
-            </div>
     </div>
   </div>
   )
 }
-
-

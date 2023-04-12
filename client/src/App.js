@@ -10,6 +10,7 @@ import {PinPages} from"./pages/PinPages";
 import {SuccsessRecoveryPage} from"./pages/SuccsessRecoveryPage";
 import {LogInPage} from"./pages/LogInPage";
 import {PersonalAccountPage} from"./pages/PersonalAccountPage";
+import { Error } from "./pages/Error.jsx";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path = ":id" element={<StayPage/>}/>
         <Route path = "register" element={<RegisterPage/>}/>
         <Route path = "register/success" element={<SuccessRegisterPage/>}/>
+        <Route path = "/error" element ={<Error/>}/>
         <Route path = "recovery" element={<PasswordRecoveryPage/>}/>
         <Route path = "recovery/pin" element={<PinPages/>}/>
         <Route path = "newpass" element={<NewPasswordPage/>}/>

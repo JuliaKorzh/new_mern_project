@@ -1,8 +1,7 @@
 @import "./normalize";
 
 $c-grey: rgba(126, 133, 141, 0.477);
-$c-orange:rgba(230, 175, 137, 1);
-$c-pinkish:rgba(209, 180, 164, 1);
+$c-orange:rgb(204, 151, 113);
 $c-dark:rgba(47, 47, 47, 1);
 $c-grey-w:rgba(170, 172, 171, 0.295);
 $shadow: 0px 3px 3px #aaacab94;
@@ -24,13 +23,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: $c-grey-w;
   color: $c-dark;
+  height: 100%;
   
 }
 .wrapper{
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: calc(100vh - 50px);
   overflow: hidden;
+
 }
 .container {
   max-width: 1200px;
@@ -38,6 +39,7 @@ body {
   padding: 0 1rem;
   box-sizing: content-box;
 }
+
 
 //_____________________________________BTN______________________________
 
@@ -128,10 +130,12 @@ body {
       
 
 /*_______________________BEGINNING______________________*/
+
 .beginning {
   position: relative;
   height: 100vh;
   margin-bottom: 2rem;
+  z-index: 0;
 
 
   &__flex{
@@ -265,7 +269,7 @@ body {
 
   .form__flex{
     background: #FFFFFF;
-    margin-top: 8rem;
+    margin: 8rem 0 2rem 0;
     padding: 2rem;
     display: flex;
     flex-direction: column;
@@ -312,13 +316,39 @@ body {
     p{
       color: red;
       font-size: 0.5rem;
-    
     }
-  
   }
 
+  //___________success____________________________
+
+.message__container{
+  .message__flex{
+  background: #FFFFFF;
+  min-width: 300px;
+  margin-top: 8rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  box-shadow: $shadow;
+  
+  .message__link{
+    text-decoration: none;
+    color: $c-orange;
+      &:hover{
+    color: $c-dark
+}
+  }
+  }
+  .none{
+    display: none;
+  }
+}
 
   //___________FOOTER________________________
   footer{
+    
     background-color: $c-grey;
-    height: 2rem;}
+    height: 50px;}

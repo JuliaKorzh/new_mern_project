@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
+import logo from "../static/logo.svg"
 
 export const Header = () => {
   const isAuth = false
@@ -9,7 +10,7 @@ export const Header = () => {
     <div className="header__container container">
       <div className="header__flex">
         <div className="header__logo">
-        <img width={128} height={48} src="static/logo.svg" alt="logo"/>
+        <img width={128} height={48} src={logo} alt="logo"/>
         </div>
         <nav className="header__menu">
            {!isAuth && (
