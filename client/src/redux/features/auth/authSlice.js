@@ -37,10 +37,11 @@ export const loginUser = createAsyncThunk( "auth/loginUser",
          return data
       }
       catch(error) {
-         console.log('error', error.response);
-         console.log('error', error.response.request.status);
-         console.log('message', error.response.data.message);
-         return rejectWithValue(error.response.data.message);
+         if (error.response && error.response.data.message) {
+            return rejectWithValue(error.response.data.message)
+          } else {
+            return rejectWithValue(error.message)
+          }
          } 
 })
 
@@ -96,3 +97,5 @@ const authSlice = createSlice({
 );
 
 export default authSlice.reducer;
+
+export default authSlice.reducer
