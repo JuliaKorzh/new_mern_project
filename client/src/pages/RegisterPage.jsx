@@ -20,12 +20,9 @@ export const RegisterPage = () => {
     }, [navigate, success, error])
                   
   const onSubmit = (data)=> {
-    try{
-      dispatch(registerUser(data));
-    }
-    catch(err){
-      console.log(err)
-    }
+      if(data.name && data.email && data.phonenumber && data.password){ 
+        dispatch(registerUser(data))
+      }
   }
   
   

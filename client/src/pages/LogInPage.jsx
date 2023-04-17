@@ -15,8 +15,9 @@ const navigate = useNavigate()
 
 
 const onSubmit = (data) =>{
-  dispatch(loginUser(data))
-}
+  if(data.email && data.password){
+    dispatch(loginUser(data))
+  }}
 
 useEffect(()=>{
   if(userInfo){navigate("/me")}

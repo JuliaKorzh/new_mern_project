@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import asyncHandler from 'express-async-handler'
 
-export const checkAuth = asyncHandler(async(req, res, next) =>{
+
+export const checkAuth = async(req, res, next) =>{
    const token = (req.headers.authorization || "").replace(/Bearer\s?/, "");  // вытаскиваем токен из хедера запроса и записываем его в const без слова bearer
 
    if(token){
@@ -11,13 +11,15 @@ export const checkAuth = asyncHandler(async(req, res, next) =>{
          next()
       }
       catch (error) {
-         res.status(401)
-         throw new Error('Not authorized, invalid token')
-       }
+         return res.status(401).json({
+            message: "Not authorized, invalid token.",
+        })
+     }
    }
    else {
-      res.status(401)
-    throw new Error('Not authorized, no token found')
+      return res.status(401).json({
+         message: "Not authorized, no token found",
+     })
    }
 
-})
+}

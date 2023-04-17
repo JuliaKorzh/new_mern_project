@@ -4,11 +4,25 @@ import axios from "../../../utils/axios";
 export const registerUser = createAsyncThunk( "auth/registerUser", 
    async ({name, email, phonenumber, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
       try{
-         const config = {
-            headers: {
-              'Content-Type': 'application/json',
-            }}
-         const {data} = await axios.post("/auth/register", {name, email, phonenumber, password}, config)
+         const {data} = await axios.post("/auth/register", {name, email, phonenumber, password})
+   
+         if(data.token){                                                   //если в запросе есть токен, он сразу записывается в headers
+            window.localStorage.setItem("token", data.token)
+         }
+         return data
+      }
+      catch(error) {
+         console.log( error);
+         console.log(error.response.request.status);
+         console.log('message:', error.response.data.message);
+         return rejectWithValue(error.response.data.message);
+         } 
+})
+
+export const loginUser = createAsyncThunk( "auth/loginUser", 
+   async ({email, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
+      try{
+         const {data} = await axios.post("/auth/login", { email, password})
    
          if(data.token){                                                   //если в запросе есть токен, он сразу записывается в headers
             window.localStorage.setItem("token", data.token)
@@ -19,39 +33,16 @@ export const registerUser = createAsyncThunk( "auth/registerUser",
          console.log('error', error.response.request.status);
          console.log('message', error.response.data.message);
          return rejectWithValue(error.response.data.message);
-         } 
-})
-
-export const loginUser = createAsyncThunk( "auth/loginUser", 
-   async ({email, password}, { rejectWithValue }) => {                          // параметры, кт мы хотим передать
-      try{
-         const config = {
-            headers: {
-              'Content-Type': 'application/json',
-            }}
-         const {data} = await axios.post("/auth/login", { email, password}, config)
-   
-         if(data.token){                                                   //если в запросе есть токен, он сразу записывается в headers
-            window.localStorage.setItem("token", data.token)
          }
-         return data
-      }
-      catch(error) {
-         if (error.response && error.response.data.message) {
-            return rejectWithValue(error.response.data.message)
-          } else {
-            return rejectWithValue(error.message)
-          }
-         } 
 })
 
 
 const initialState = {
    loading: false,
-   userInfo: null, // for user object
-   userToken: null, // for storing the JWT
+   userInfo: null,                                  
+   userToken: null, 
    error: null,
-   success: false, // for monitoring the registration process.
+   success: false, 
    };
 
 const authSlice = createSlice({
@@ -68,7 +59,7 @@ const authSlice = createSlice({
          state.loading = true
          state.error = null
       },
-      [registerUser.fulfilled]: (state, { payload }) => {
+      [registerUser.fulfilled]: (state) => {
          state.loading = false
          state.success = true 
       },

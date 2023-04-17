@@ -9,15 +9,16 @@ import jwt from "jsonwebtoken";
 //__Registration user
 
 export const register = async (req, res)=>{
+
    try{
       const errors = validationResult(req);                             // проверяем есть ли ошибкт при введении данных
-      if(!errors.isEmpty()){                                              // если errors не пустая коллекция
+      if(!errors.isEmpty()){                                              // если errors, не пустая коллекция
         return res.status(400).json(
          errors.array()
         )
-      };
+      }
 
-      const {name, email, phonenumber, password} = req.body         //то, что пользователь отправляет на сервер
+      const {name, email, phonenumber, password} = req.body            //то, что пользователь отправляет на сервер
 
       const isUsed = await User.findOne({email})                      // проверяем, есть ли в бд пользователь с таким именем
       if(isUsed){
@@ -29,7 +30,7 @@ export const register = async (req, res)=>{
       const salt = bcrypt.genSaltSync(10)                                // генерируем соль для хэширования
       const hash = bcrypt.hashSync(password, salt)
 
-      const user = new User({                                         // создаем нового пользователя
+      const user = new User({                                          // создаем нового пользователя
          name,
          email,
          phonenumber,
@@ -39,7 +40,7 @@ export const register = async (req, res)=>{
          {                                                               // токен это зашифрованный id пользователя
          id: user._id,                                                       // нужен, чтобы понять авторизовался пользователь или нет. Если пользователь не в  системе, он не сможет нпр отправить сообщение владельцу
         }, 
-        process.env.JWT_SECRET,                                    //секретное слово 
+        process.env.JWT_SECRET,                                        //секретное слово 
         {expiresIn: "30d"},                                            // сколько времени действителен
      )      
 
@@ -51,7 +52,6 @@ export const register = async (req, res)=>{
          message:"Registration completed successfully! You can log in"
       })
    }
-
 
    catch(err){
       res.status(500).json({
