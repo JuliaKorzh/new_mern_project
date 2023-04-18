@@ -11,9 +11,20 @@ import {SuccsessRecoveryPage} from"./pages/SuccsessRecoveryPage";
 import {LogInPage} from"./pages/LogInPage";
 import {PersonalAccountPage} from"./pages/PersonalAccountPage";
 import { Error } from "./pages/Error.jsx";
+import { useEffect } from "react";
+import {getMe} from "./redux/features/auth/authSlice.js"
+import { useDispatch } from "react-redux";
 
 
 function App() {
+
+const dispatch = useDispatch()
+
+useEffect(()=>{
+  dispatch(getMe)
+}, [])
+
+
   return (
     <Layout>
       <Routes>

@@ -70,14 +70,14 @@ export const login = async (req, res)=>{
       const user = await User.findOne({email})                        // проверяем есть ли пользователь с таким именем
       if(!user){
          return res.status(400).json({
-            message: "wrong login or password"
+            message: "Wrong login or password"
          })
       }
 
       const isCorrect = await bcrypt.compare(password, user.password)           // проверяем совпадает ли пароль
       if(!isCorrect){
          return res.status(400).json({
-            message: "wrong login or password"
+            message: "Wrong login or password"
          })
       }
 

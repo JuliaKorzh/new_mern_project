@@ -36,21 +36,37 @@ export const loginUser = createAsyncThunk( "auth/loginUser",
          }
 })
 
+export const getMe = createAsyncThunk( "/auth/login", 
+   async ({ rejectWithValue }) => {                          // параметры, кт мы хотим передать
+      try{
+         const {data} = await axios.get("/auth/me")
+         return data
+      }
+      catch(error) {
+         console.log('error', error.response.request.status);
+         console.log('message', error.response.data.message);
+         return rejectWithValue(error.response.data.message);
+         }
+})
+
 
 const initialState = {
    loading: false,
    userInfo: null,                                  
-   userToken: null, 
+   token: null, 
    error: null,
    success: false, 
    };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
    name: 'auth',
    initialState,
    reducers: {
       logout: (state) => {
          state.userInfo = null;
+         state.token= null;
+         state.error = null;
+         state.success = false;
          },
    },
    extraReducers: {
@@ -75,16 +91,34 @@ const authSlice = createSlice({
       [loginUser.fulfilled]: (state, { payload }) => {
          state.loading = false
          state.userInfo = payload
-         state.userToken = payload.userToken
-         
+         state.token = payload.token
       },
       [loginUser.rejected]: (state, { payload }) => {
          state.loading = false
          state.error = payload
       },
 
+
+       //getMe
+       [getMe.pending]: (state) => {
+         state.loading = true
+         state.error = null
+      },
+      [getMe.fulfilled]: (state, { payload }) => {
+         state.loading = false
+         state.userInfo = payload
+         state.token = payload?.token 
+      },
+      [getMe.rejected]: (state, { payload }) => {
+         state.loading = false
+         state.error = payload
+      },
    },
 }
 );
+
+export const checkIsAuth = (state) => Boolean(state.auth.token)
+
+export const { logout } = authSlice.actions
 
 export default authSlice.reducer

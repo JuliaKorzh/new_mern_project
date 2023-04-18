@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const SuccessRegisterPage = () => {
+  
+ 
   return (
     <div className='message__container container'>
       <div className='message__flex'>

@@ -9,22 +9,26 @@ import { useNavigate } from 'react-router-dom';
 export const RegisterPage = () => {
   
   const dispatch = useDispatch()
+
   const { error, success } = useSelector(
     (state) => state.auth)  
   const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors }, watch } = useForm({mode: "onBlur"});
 
+  const onSubmit = (data)=> {
+    if(data.name && data.email && data.phonenumber && data.password){ 
+      dispatch(registerUser(data))
+    }
+}
+
+
   useEffect(()=>{
-      if(success) navigate ("/register/success")
+      if(success) navigate ("register/success")
+      
       if(error) navigate("/error")
     }, [navigate, success, error])
                   
-  const onSubmit = (data)=> {
-      if(data.name && data.email && data.phonenumber && data.password){ 
-        dispatch(registerUser(data))
-      }
-  }
-  
+
   
   return (
     <div className='register__container container'>

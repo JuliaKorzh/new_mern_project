@@ -1,10 +1,19 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
-import logo from "../static/logo.svg"
+import { Link, NavLink } from "react-router-dom";
+import logo from "../static/logo.svg";
+import { useSelector } from 'react-redux';
+import {logout, checkIsAuth} from '../redux/features/auth/authSlice';
+import { useDispatch } from 'react-redux';
+
 
 export const Header = () => {
-  const isAuth = false
+  const dispatch = useDispatch()
+  const isAuth = useSelector(checkIsAuth)
 
+  const logoutHandler = ()=>{
+    dispatch(logout())
+    window.localStorage.removeItem("token")
+  }
   return (
     <header className="header">
     <div className="header__container container">
@@ -17,7 +26,7 @@ export const Header = () => {
              <ul>
                <li><NavLink to={"/"}
                className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
-                <li><NavLink to={"/register"}
+                <li><NavLink end to={"/register"}
                  className={ ({isActive}) => isActive ? "link-active" : undefined }>SIGN UP</NavLink></li>
                <li><NavLink to={"/login"}
                  className={ ({isActive}) => isActive ? "link-active" : undefined }>LOG IN</NavLink></li>
@@ -30,6 +39,8 @@ export const Header = () => {
                   className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
                   <li><NavLink to={"/me"}
                   className={ ({isActive}) => isActive ? "link-active" : undefined }>MY ACCOUNT</NavLink></li>
+                  <li><Link to={"/"} onClick={logoutHandler}
+                  className={ ({isActive}) => isActive ? "link-active" : undefined }>LOG OUT</Link></li>
                 </ul>
               )}
 
