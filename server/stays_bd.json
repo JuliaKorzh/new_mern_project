@@ -1,0 +1,34 @@
+[
+   {
+      "title": "Lorem ipsum",
+      "category": "apartment",
+      "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
+      "price": 120,
+      "area": 82,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": "//http://localhost:3002/storage/imgs/img.jpg"
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "apartment",
+      "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
+      "price": "120$/night",
+      "area": "82m²",
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl":"//http://localhost:3002/storage/imgs/img.jpg"
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "apartment",
+      "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
+      "price": "120$/night",
+      "area": "82m²",
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl":"//http://localhost:3002/storage/imgs/img.jpg"
+   }
+   
+
+]

@@ -193,27 +193,29 @@ body {
             font-weight: 400;
             font-size: 1rem;
           }
-          input{
-            padding: 0.3rem;
-            border: 1px solid $c-dark;
-            border-radius: 5px;
-            margin-bottom: 1rem ;
-          }
-          .filter__minmax{
-            display: flex;
-            gap: 1rem;
+      
+          .filter__slider{
+            display: inline-block;
+            max-width: 100%;
+            padding: 0;
+          
             input{
-              max-width: 47%;
+              width: 100%;
+              
+            }
+            p{
+             font-size: 12px;
+      
             }
           }
         }
       }
       .content__cards{
+        min-width: 68%;
         .cards__flex{
           display: flex;
           flex-direction: column;
           gap: 1rem;
-          
           .card{
             display: flex;
             background-color: #FFFFFF;
@@ -225,7 +227,7 @@ body {
               min-width: 30%;
               border-radius: 5px;
               overflow: hidden;
-    
+        
               img{
                 object-fit: cover;
                 position: absolute;
@@ -238,13 +240,22 @@ body {
               &__descripcion{
               padding: 1rem;
               min-width: 69%;
-
+        
               .card__flex{
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
+                a{
+                  text-decoration: none;
+                  color: $c-dark;
+                  &:hover{
+                    color: $c-orange;
+                  }
+                }
                 h4{
                   font-weight: 500;
+                 text-transform: uppercase;
+                
                 }
                 .card__details{
                   display: flex;
@@ -261,7 +272,7 @@ body {
       }
     }
   }
-
+  
 
 
   //______________________FORM_________________________
@@ -357,7 +368,14 @@ body {
   align-items: center;
 }
 
-
+//____________Stay_____________
+.stay_container{
+  margin-top: 8rem;
+  max-width: 80%;
+  .card{
+    flex-direction: column;
+  }
+}
 
   //___________FOOTER________________________
   footer{

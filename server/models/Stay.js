@@ -14,11 +14,11 @@ const StaySchema = new mongoose.Schema({
       require: true,
    },
    price: {
-      type: String,
+      type: Number,
       require: true,
    },
    area: {
-      type: String,
+      type: Number,
       require: true,
    },
    descriptionShort:{
@@ -29,10 +29,12 @@ const StaySchema = new mongoose.Schema({
       type: String,
       require: true,
    },
-   image: {
+   imgUrl: {
       type: String,
       require: true,
    }
 })
+
+
 
 export default mongoose.model("Stay", StaySchema)

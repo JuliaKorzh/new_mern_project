@@ -6,6 +6,8 @@ import {logout, checkIsAuth} from '../redux/features/auth/authSlice';
 import { useDispatch } from 'react-redux';
 
 
+
+
 export const Header = () => {
   const dispatch = useDispatch()
   const isAuth = useSelector(checkIsAuth)
@@ -19,13 +21,13 @@ export const Header = () => {
     <div className="header__container container">
       <div className="header__flex">
         <div className="header__logo">
-        <img width={128} height={48} src={logo} alt="logo"/>
+        <NavLink to={"/"}>
+        <img width={128} height={48} src={logo} alt="logo"/></NavLink>
         </div>
         <nav className="header__menu">
            {!isAuth && (
              <ul>
-               <li><NavLink to={"/"}
-               className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
+               <li><NavLink to={"/"} className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
                 <li><NavLink end to={"/register"}
                  className={ ({isActive}) => isActive ? "link-active" : undefined }>SIGN UP</NavLink></li>
                <li><NavLink to={"/login"}

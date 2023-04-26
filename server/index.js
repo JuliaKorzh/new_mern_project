@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 
-import authRoute from "./routes/auth.js"
+import authRoute from "./routes/auth.js";
+import stayRoute from "./routes/stay.js"
 
 
 const app = express();
@@ -20,11 +21,15 @@ const DB_NAME = process.env.DB_NAME;
 
 app.use(cors())               // чтобы отправлять запросы на сервер с разных IP
 app.use(express.json())       //ответ с сервера будет приходить клиенту в формате json
-
+app.use(express.static("storage"));  // доступ к статич фаилам
 
 //__Routes____________________________________
 
 app.use("/api/auth", authRoute)
+
+app.use("/api/stay", stayRoute)
+
+//    PORT=3002
 
 
 //__Start_____________________________________________
@@ -34,10 +39,11 @@ async function startBd(){
       console.log("DB OK")
 
       app.listen(PORT, ()=>
-      console.log("server OK"))
+      console.log("server started at port:" + PORT))
 
    } catch(err){
       console.log(err)
       }
 }
 startBd()
+
