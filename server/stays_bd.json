@@ -1,33 +1,148 @@
 [
+   
    {
       "title": "Lorem ipsum",
       "category": "apartment",
       "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
-      "price": 120,
+      "price": 220,
       "area": 82,
       "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
       "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
-      "imageUrl": "//http://localhost:3002/storage/imgs/img.jpg"
+      "imageUrl": [
+         "http://localhost:3002/1.jpg", "http://localhost:3002/2.jpg", "http://localhost:3002/3.jpg", "http://localhost:3002/4.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "hotel room",
+      "direction": "Av. Tomàs Blanes Tolosa, 4, 07181 Portals Nous, Illes Balears",
+      "price": 320,
+      "area": 32,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/5.jpg", "http://localhost:3002/6.jpg", "http://localhost:3002/7.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "room",
+      "direction": "Carrer d'Antoni Maria Alcover, 41, 07181 Portals Nous, Illes Balears",
+      "price": 135,
+      "area": 53,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/8.jpg", "http://localhost:3002/9.jpg", "http://localhost:3002/10.jpg", "http://localhost:3002/11.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "apartment",
+      "direction": "Ctra. Andratx, 30, 07181 Portals Nous, Illes Balears",
+      "price": 270,
+      "area": 132,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/12.jpg", "http://localhost:3002/13.jpg", "http://localhost:3002/14.jpg", "http://localhost:3002/15.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "hotel room",
+      "direction": "Ctra. Andratx, 30, 07181 Portals Nous, Illes Balears",
+      "price": 130,
+      "area": 27,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/13.jpg", "http://localhost:3002/1.jpg", "http://localhost:3002/2.jpg", "http://localhost:3002/3.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "room",
+      "direction": "Ctra. Vella, 11, 07181 Portals Nous, Illes Balears",
+      "price": 98,
+      "area": 28,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/8.jpg", "http://localhost:3002/5.jpg", "http://localhost:3002/6.jpg", "http://localhost:3002/7.jpg"
+      ]
    },
    {
       "title": "Lorem ipsum",
       "category": "apartment",
       "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
-      "price": "120$/night",
-      "area": "82m²",
+      "price": 78,
+      "area": 56,
       "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
       "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
-      "imageUrl":"//http://localhost:3002/storage/imgs/img.jpg"
+      "imageUrl": [
+         "http://localhost:3002/2.jpg", "http://localhost:3002/8.jpg", "http://localhost:3002/3.jpg", "http://localhost:3002/4.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "hotel room",
+      "direction": "Av. Tomàs Blanes Tolosa, 4, 07181 Portals Nous, Illes Balears",
+      "price": 249,
+      "area": 37,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/6.jpg", "http://localhost:3002/6.jpg", "http://localhost:3002/7.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "room",
+      "direction": "Carrer d'Antoni Maria Alcover, 41, 07181 Portals Nous, Illes Balears",
+      "price": 119,
+      "area": 51,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/7.jpg", "http://localhost:3002/9.jpg", "http://localhost:3002/10.jpg", "http://localhost:3002/11.jpg"
+      ]
    },
    {
       "title": "Lorem ipsum",
       "category": "apartment",
-      "direction": "Darsena de Ca'n Barbara, 07015 Mallorca",
-      "price": "120$/night",
-      "area": "82m²",
+      "direction": "Ctra. Andratx, 30, 07181 Portals Nous, Illes Balears",
+      "price": 190,
+      "area": 96,
       "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
       "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
-      "imageUrl":"//http://localhost:3002/storage/imgs/img.jpg"
+      "imageUrl": [
+         "http://localhost:3002/11.jpg", "http://localhost:3002/13.jpg", "http://localhost:3002/14.jpg", "http://localhost:3002/15.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "hotel room",
+      "direction": "Ctra. Andratx, 30, 07181 Portals Nous, Illes Balears",
+      "price": 190,
+      "area": 47,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/15.jpg", "http://localhost:3002/1.jpg", "http://localhost:3002/2.jpg", "http://localhost:3002/3.jpg"
+      ]
+   },
+   {
+      "title": "Lorem ipsum",
+      "category": "room",
+      "direction": "Carrer de Còrdova, 6, 07181 Calvià, Illes Balears",
+      "price": 145,
+      "area": 64,
+      "descriptionShort": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit.",
+      "descriptionLong": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan ipsum ac venenatis placerat. Duis mattis molestie massa, at accumsan nunc tempor vitae. Donec pulvinar felis dolor, vitae luctus mi vulputate sed. Maecenas arcu orci, porttitor eget suscipit in, dignissim vel velit. Morbi vel nibh risus. Praesent in magna sollicitudin, volutpat tortor ac, dapibus mi. Suspendisse pretium et urna quis ornare. Suspendisse tincidunt neque tellus. Aenean laoreet pharetra arcu. Nam mollis, metus ultrices cursus feugiat, velit risus consequat tortor, et consequat dui nulla nec mi. Ut venenatis, nibh sit amet gravida bibendum, tortor purus tempus urna, sed congue sapien elit sed dui. Duis posuere enim convallis iaculis molestie.",
+      "imageUrl": [
+         "http://localhost:3002/8.jpg", "http://localhost:3002/5.jpg", "http://localhost:3002/6.jpg", "http://localhost:3002/7.jpg"
+      ]
    }
    
 

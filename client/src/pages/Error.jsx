@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import {logout} from '../redux/features/auth/authSlice';
 import { useDispatch } from 'react-redux';
+import styles from '../styles/message.module.scss'
 
 export const Error = ()=>{
    const dispatch = useDispatch()
@@ -30,11 +31,11 @@ useEffect(()=>{
 
 
    return(
-      <div className="message__container container">
-         <div className="message__flex">
+      <div className={styles.container}>
+         <div className={styles.flex}>
             <p>{error}</p>
-            <Link to="/recovery" onClick={resetHandler} className={ isVisibleReg === true ? "message__link"  :  "none"}>You can reset your password here</Link>
-            <Link to="/login" onClick={resetHandler} className={ isVisibleLog === true ? "message__link" : "none"}>Try it again</Link>
+            <Link to="/recovery" onClick={resetHandler} className={ isVisibleReg === true ? styles.link  :  styles.none}>You can reset your password here</Link>
+            <Link to="/login" onClick={resetHandler} className={ isVisibleLog === true ? styles.link : styles.none}>Try it again</Link>
          </div>
       </div>
    )

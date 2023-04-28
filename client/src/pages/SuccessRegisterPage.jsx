@@ -1,14 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import styles from '../styles/message.module.scss'
+
 
 export const SuccessRegisterPage = () => {
   
  
   return (
-    <div className='message__container container'>
-      <div className='message__flex'>
+    <div className={styles.container}>
+      <div className={styles.flex}>
         <p>Registration completed successfully!</p>
-        <Link to="/login" className='message__link'>You can log in</Link>
+        <Link to="/login" className={styles.link}>You can log in</Link>
       </div>
     </div>
   )

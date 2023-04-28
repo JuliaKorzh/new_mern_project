@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { registerUser } from '../redux/features/auth/authSlice';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import styles from "../styles/form.module.scss"
 
 
 
@@ -23,7 +24,7 @@ export const RegisterPage = () => {
 
 
   useEffect(()=>{
-      if(success) navigate ("register/success")
+      if(success) navigate ("/register/success")
       
       if(error) navigate("/error")
     }, [navigate, success, error])
@@ -31,23 +32,23 @@ export const RegisterPage = () => {
 
   
   return (
-    <div className='register__container container'>
-    <div className='form__flex'>
-      <h2 className='form__title'>Sign up</h2>
+    <div className={styles.container}>
+    <div className={styles.flex}>
+      <h2 className={styles.title}>Sign up</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          className={errors?.name ? "invalid" : "valid"}
+          className={errors?.name ? styles.invalid : styles.valid}
           {...register("name", {
               required: "field is required",
           })}
           type="text"
           placeholder="name">
         </input>
-        <div className='errors'>
+        <div className={styles.errors}>
             {errors?.name && <p>{errors?.name?.message}</p>}
         </div>
         <input
-           className={errors?.email ? "invalid" : "valid"}
+           className={errors?.email ? styles.invalid : styles.valid}
             {...register("email", {
               required: "field is required",
               pattern: {
@@ -58,11 +59,11 @@ export const RegisterPage = () => {
             type="email"
             placeholder="e-mail">
         </input>
-        <div className='errors'>
+        <div className={styles.errors}>
             {errors?.email && <p>{errors?.email?.message}</p>}
         </div>
         <input
-            className={errors?.phonenumber ? "invalid" : "valid"}
+            className={errors?.phonenumber ? styles.invalid : styles.valid}
             {...register("phonenumber", {
               required: "field is required",
               pattern: {
@@ -73,11 +74,11 @@ export const RegisterPage = () => {
             type="tel"
             placeholder="+79...">
         </input>
-        <div className='errors'>
+        <div className={styles.errors}>
             {errors?.phonenumber && <p>{errors?.phonenumber?.message }</p>}
         </div>
         <input
-          className={errors?.password ? "invalid" : "valid"}
+          className={errors?.password ? styles.invalid : styles.valid}
             {...register("password", {
             required: "field is required",
             minLength: {
@@ -88,11 +89,11 @@ export const RegisterPage = () => {
             type="password"
             placeholder="password">
         </input>
-        <div className='errors'>
+        <div className={styles.errors}>
             {errors?.password && <p>{errors?.password?.message }</p>}
         </div>
         <input 
-          className={errors?.confirm_password ? "invalid" : "valid"}
+          className={errors?.confirm_password ? styles.invalid : styles.valid}
            {...register("confirm_password", {
             required: "field is required",
             validate: (val) => 
@@ -101,11 +102,11 @@ export const RegisterPage = () => {
             type="password"
             placeholder='confirm password'>
         </input>
-        <div className='errors'>
+        <div className={styles.errors}>
             {errors?.confirm_password && <p>{errors?.confirm_password?.message}</p>}
         </div>
-        <div className='btn__flex'>
-            <button className='btn' type='submit' onClick={onSubmit}>
+        <div className={styles.btnFlex}>
+            <button className={styles.btn} type='submit' onClick={onSubmit}>
               confirm
             </button>
         </div>

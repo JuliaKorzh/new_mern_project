@@ -30,8 +30,8 @@ const StaySchema = new mongoose.Schema({
       require: true,
    },
    imgUrl: {
-      type: String,
-      require: true,
+      type: [String],
+      default: undefined,
    }
 })
 

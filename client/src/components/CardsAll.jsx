@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import { getAllStays } from "../redux/features/stay/staySlice";
 import { Card } from "./Card";

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from "react-router-dom";
 import logo from "../static/logo.svg";
 import { useSelector } from 'react-redux';
 import {logout, checkIsAuth} from '../redux/features/auth/authSlice';
 import { useDispatch } from 'react-redux';
-
+import styles from "../styles/header.module.scss";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 
 
@@ -16,36 +17,48 @@ export const Header = () => {
     dispatch(logout())
     window.localStorage.removeItem("token")
   }
+
+//___burger menu
+
+const [burger, setBurger] = useState(false)
+
   return (
-    <header className="header">
-    <div className="header__container container">
-      <div className="header__flex">
-        <div className="header__logo">
+    <header className={styles.header}>
+    <div className={styles.container}>
+      <div className={styles.headerFlex}>
+        <div className={styles.logo}>
         <NavLink to={"/"}>
         <img width={128} height={48} src={logo} alt="logo"/></NavLink>
         </div>
-        <nav className="header__menu">
+        <nav className={styles.menu}>
            {!isAuth && (
-             <ul>
-               <li><NavLink to={"/"} className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
+             <ul onClick={()=> setBurger(!burger)}
+             className={ burger ? styles.active : undefined}>
+               <li ><NavLink to={"/"} className={ ({isActive}) => isActive ? styles.active : undefined }>STAYS</NavLink></li>
                 <li><NavLink end to={"/register"}
-                 className={ ({isActive}) => isActive ? "link-active" : undefined }>SIGN UP</NavLink></li>
+                 className={ ({isActive}) => isActive ? styles.active : undefined }>SIGN UP</NavLink></li>
                <li><NavLink to={"/login"}
-                 className={ ({isActive}) => isActive ? "link-active" : undefined }>LOG IN</NavLink></li>
+                 className={ ({isActive}) => isActive ? styles.active : undefined }>LOG IN</NavLink></li>
              </ul>
            )}
           
               {isAuth && (
-                <ul>
-                  <li><NavLink to={"/"}
-                  className={ ({isActive}) => isActive ? "link-active" : undefined }>STAYS</NavLink></li>
+                <ul onClick={()=> setBurger(!burger)}
+                className={ burger ? styles.active : undefined}
+                >
+                  <li ><NavLink to={"/"}
+                  className={ ({isActive}) => isActive ? styles.active : undefined }>STAYS</NavLink></li>
                   <li><NavLink to={"/me"}
-                  className={ ({isActive}) => isActive ? "link-active" : undefined }>MY ACCOUNT</NavLink></li>
+                  className={ ({isActive}) => isActive ? styles.active : undefined }>MY ACCOUNT</NavLink></li>
                   <li><Link to={"/"} onClick={logoutHandler}
-                  className={ ({isActive}) => isActive ? "link-active" : undefined }>LOG OUT</Link></li>
+                  className={ ({isActive}) => isActive ? styles.active : undefined }>LOG OUT</Link></li>
                 </ul>
+    
               )}
 
+        <div onClick={()=> setBurger(!burger)} className={styles.burgerBtn}>
+          {burger ? <AiOutlineClose size={25} /> :  <AiOutlineMenu size={25} />}
+        </div>
         </nav>
       </div>
     </div>

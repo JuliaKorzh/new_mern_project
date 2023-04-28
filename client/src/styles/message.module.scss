@@ -1,0 +1,35 @@
+$c-grey: rgba(126, 133, 141, 0.477);
+$c-orange:rgb(204, 151, 113);
+$c-dark:rgba(47, 47, 47, 1);
+$c-grey-w:rgba(170, 172, 171, 0.295);
+$shadow: 0px 3px 3px #aaacab94;
+
+.container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: content-box;
+   .flex{
+   background: #FFFFFF;
+   min-width: 300px;
+   margin-top: 8rem;
+   padding: 2rem;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   justify-content: center;
+   align-items: center;
+   box-shadow: $shadow;
+   
+   .link{
+     text-decoration: none;
+     color: $c-orange;
+       &:hover{
+     color: $c-dark
+ }
+   }
+   }
+   .none{
+     display: none;
+   }
+ }

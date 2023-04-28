@@ -14,6 +14,8 @@ import { Error } from "./pages/Error.jsx";
 import { useEffect } from "react";
 import {getMe} from "./redux/features/auth/authSlice.js"
 import { useDispatch } from "react-redux";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 function App() {

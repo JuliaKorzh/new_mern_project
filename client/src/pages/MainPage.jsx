@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import bgi from "../static/bgi.jpg";
+import icon from "../static/icons-up.png";
 import { CardsAll } from '../components/CardsAll';
 
 
@@ -30,6 +31,21 @@ const changeArea = event =>{
   setSelectedArea(event.target.value)
 }
 
+//__Scroll to top
+const [showBtn, setShowBtn] = useState(false)
+useEffect(()=>{
+ const handleScrollBtnVisiblity = ()=>{
+  window.pageYOffset > 300 ? setShowBtn(true) : setShowBtn(false);
+ }; 
+ window.addEventListener("scroll", handleScrollBtnVisiblity)
+ return()=> {
+  window.removeEventListener("scroll", handleScrollBtnVisiblity)
+ }
+}, [])
+
+const handleScrollToTop = ()=>{
+  window.scrollTo({top:0, behavior: "smooth"})
+}
 
 
   return (
@@ -68,7 +84,15 @@ const changeArea = event =>{
             </div>
         </section>
       
+        {showBtn && (
+          <div className='scroll'>
+            <button className='scroll__btn' onClick={handleScrollToTop}>
+              <img src={icon} alt='icon'/>
+            </button>
+          </div>
+  )}
     </main>
+
   )
 }
 

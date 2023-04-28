@@ -6,7 +6,7 @@ export const Card = ({stay})=>{
    return(
      
          <div className="card">
-                  <div className="card__img"><img src={stay.imageUrl} alt="img"/></div>
+                  <div className="card__img"><img src={stay.imageUrl[0]} alt="img"/></div>
                   <div className="card__descripcion">
                      <div className="card__flex">
                      <Link to={`/${stay._id}`}><h4>{stay.title}</h4></Link>
@@ -14,7 +14,7 @@ export const Card = ({stay})=>{
                            <p>{stay.price} $/nigth</p>
                            <p>{stay.area} m²</p>
                         </div>
-                        <div className="card__adresse">{stay.direction}</div>
+                        <div className="card__adresse"><p>{stay.direction}</p></div>
                         <p>{stay.descriptionShort}</p>
                      </div>
                   </div>

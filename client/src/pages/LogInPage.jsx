@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import { loginUser } from '../redux/features/auth/authSlice';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import styles from "../styles/form.module.scss"
 
 
 export const LogInPage = () => {
@@ -26,9 +27,9 @@ useEffect(()=>{
 
 
   return (
-      <div className='login__container container'>
-        <div className='form__flex'>
-          <h2 className='form__title'>Welcome</h2>
+      <div className={styles.container}>
+        <div className={styles.flex}>
+          <h2 className={styles.title}>Welcome</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
               <input className={errors?.email ? "invalid" : "valid"}
                 type="email"
@@ -41,7 +42,7 @@ useEffect(()=>{
                   }
                 })}>
               </input>
-              <div className='errors'>
+              <div className={styles.errors}>
                 {errors?.email && <p>{errors?.email?.message}</p>}
               </div>
               <input className={errors?.password ? "invalid" : "valid"}
@@ -55,13 +56,13 @@ useEffect(()=>{
                   }
                 })}>
               </input>
-              <div className='errors'>
+              <div className={styles.errors}>
                 {errors?.password && <p>{errors?.password?.message }</p>}
               </div>
-              <div className='btn__flex'>
-                <button className='btn' type='submit' onClick={onSubmit}>
+              <div className={styles.btnFlex}>
+                <button className={styles.btn} type='submit' onClick={onSubmit}>
                   log in</button>
-                <Link to="/recovery" className='btn'>
+                <Link to="/recovery" className={styles.btn}>
                   forgot password</Link>
               </div>
              </form>
