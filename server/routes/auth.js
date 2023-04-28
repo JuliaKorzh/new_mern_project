@@ -1,5 +1,5 @@
 import { Router } from "express";
-import{ register, login, getMe } from "../controllers/auth.js";
+import{ register, login, getMe, changeData } from "../controllers/auth.js";
 import {checkAuth} from "../middlewares/checkAuth.js"
 
 
@@ -24,6 +24,9 @@ router.post("/login", login)
 
 router.get("/me", checkAuth,  getMe)
 
+//__Change Data_______________________________
+
+router.put("/change",checkAuth, changeData)
 
 
 export default router

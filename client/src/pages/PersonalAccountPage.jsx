@@ -14,7 +14,7 @@ export const PersonalAccountPage = () => {
         <h3>Wellcome {userInfo.user.name}!</h3>
         <p>Your phonenumber: {userInfo.user.phonenumber} </p>
         <p>Your email: {userInfo.user.email}</p>
-        <Link to = "" className={styles.link} >Change my data</Link>
+        <Link to = "/changedata" className={styles.link} >Change my data</Link>
       </div>
     </div>
   )

@@ -133,3 +133,39 @@ export const login = async (req, res)=>{
       }
    }
    
+
+   //___________________ChangeData
+
+   export const changeData = async(req, res)=>{
+      try {
+         const nameNew = req.body.name;
+         const emailNew = req.body.email;
+         const phonenumberNew= req.body.phonenumber;
+         const passwordNew = req.body.password;
+         const salt = bcrypt.genSaltSync(10)                                // генерируем соль для хэширования
+         const hash = bcrypt.hashSync(passwordNew, salt)
+
+         const user = await User.findByIdAndUpdate(req.userId, {$set: {name: nameNew, phonenumber: phonenumberNew, email: emailNew, password: hash}}, { returnDocument: "after" })
+         if(!user){
+            return res.status(400).json({
+               message: "User not authorized"
+            })
+         }
+         const token = jwt.sign({                // токен это зашифрованный id пользователя
+            id: user._id,                                    // нужен, чтобы понять авторизовался пользователь или нет. Если пользователь не в  системе, он не сможет нпр отправить сообщение владельцу
+           }, 
+           process.env.JWT_SECRET,                 //секретное слово 
+           {expiresIn: "30d"},                     // сколько времени действителен
+        )
+        res.json({
+         user,
+         token,
+        })
+
+      }
+      catch(error){
+         res.status(401).json({
+            message: "Failed to change data"
+         })
+      }
+   }

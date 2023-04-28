@@ -50,6 +50,21 @@ export const getMe = createAsyncThunk( "/auth/login",
 })
 
 
+export const changeData = createAsyncThunk("auth/changeData",
+async({name, email, phonenumber, password}, {rejectWithValue})=>{
+   try{
+      const {data} = await axios.put("/auth/change", {name, email, phonenumber, password})
+      return data
+   }
+   catch(error){
+      console.log('error', error.response.request.status);
+      console.log('message', error.response.data.message);
+      return rejectWithValue(error.response.data.message);
+   }
+}
+
+)
+
 const initialState = {
    loading: false,
    userInfo: null,                                  
@@ -113,6 +128,23 @@ export const authSlice = createSlice({
          state.loading = false
          state.error = payload
       },
+
+      //changeData
+      [changeData.pending]: (state) => {
+         state.loading = true
+         state.error = null
+      },
+      [changeData.fulfilled]: (state, { payload }) => {
+         state.loading = false
+         state.userInfo = payload
+         state.success = true 
+        
+      },
+      [changeData.rejected]: (state, { payload }) => {
+         state.loading = false
+         state.error = payload
+      },
+
    },
 }
 );

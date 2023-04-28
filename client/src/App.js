@@ -10,6 +10,7 @@ import {PinPages} from"./pages/PinPages";
 import {SuccsessRecoveryPage} from"./pages/SuccsessRecoveryPage";
 import {LogInPage} from"./pages/LogInPage";
 import {PersonalAccountPage} from"./pages/PersonalAccountPage";
+import {ChangeDataPage} from "./pages/ChangeDataPage.jsx";
 import { Error } from "./pages/Error.jsx";
 import { useEffect } from "react";
 import {getMe} from "./redux/features/auth/authSlice.js"
@@ -41,6 +42,7 @@ useEffect(()=>{
         <Route path = "newpass/success" element={<SuccsessRecoveryPage/>}/>
         <Route path = "login" element={<LogInPage/>}/>
         <Route path = "me" element={<PersonalAccountPage/>}/>
+        <Route path = "changedata" element={<ChangeDataPage/>}/>
       </Routes>
     </Layout>
   );
